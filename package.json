@@ -1,0 +1,27 @@
+{
+  "name": "backend-zero",
+  "version": "1.0.0",
+  "description": "full backend zero",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NguyenTheToan0609/backend-zero.git"
+  },
+  "keywords": [
+    "nodejs",
+    "react"
+  ],
+  "author": "thetoan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NguyenTheToan0609/backend-zero/issues"
+  },
+  "homepage": "https://github.com/NguyenTheToan0609/backend-zero#readme",
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}
