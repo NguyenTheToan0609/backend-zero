@@ -2,7 +2,7 @@ const { json } = require("express");
 const connection = require("../config/database");
 
 const getHomePage = (req, res) => {
-  res.render("sample.ejs");
+  return res.render("home.ejs");
 };
 
 const getABC = (req, res) => {
