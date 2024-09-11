@@ -14,7 +14,7 @@ router.get("/", getHomePage);
 router.get("/abc", getABC);
 
 router.get("/create", getCreateUser);
-router.get("/update", getUpdatePage);
+router.get("/update/:id", getUpdatePage);
 
 router.post("/create-user", postCreateUSer);
 

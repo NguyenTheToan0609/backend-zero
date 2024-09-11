@@ -12,6 +12,8 @@ const getCreateUser = (req, res) => {
 };
 
 const getUpdatePage = (req, res) => {
+  const UserId = req.params.id;
+  console.log(">>>> req.params : ", req.params, UserId);
   res.render("edit.ejs");
 };
 
