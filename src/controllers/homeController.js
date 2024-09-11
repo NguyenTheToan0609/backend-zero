@@ -14,7 +14,23 @@ const getABC = (req, res) => {
   });
 };
 
+const postCreateUSer = (req, res) => {
+  let email = req.body.Email;
+  let name = req.body.Name;
+  let city = req.body.City;
+
+  connection.query(
+    `INSERT INTO Users (email, name, city)
+    VALUES (?,?,?);`,
+    [email, name, city],
+    function (err, results) {
+      return res.send("Create New User Success");
+    }
+  );
+};
+
 module.exports = {
   getHomePage,
   getABC,
+  postCreateUSer,
 };
