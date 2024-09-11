@@ -1,6 +1,6 @@
 const { json } = require("express");
 const connection = require("../config/database");
-const { getAllUsers } = require("../services/CRUDService");
+const { getAllUsers, getUserById } = require("../services/CRUDService");
 
 const getHomePage = async (req, res) => {
   let results = await getAllUsers();
@@ -11,16 +11,16 @@ const getCreateUser = (req, res) => {
   res.render("create.ejs");
 };
 
-const getUpdatePage = (req, res) => {
-  const UserId = req.params.id;
-  console.log(">>>> req.params : ", req.params, UserId);
-  res.render("edit.ejs");
+const getUpdatePage = async (req, res) => {
+  const userId = req.params.id;
+  const user = await getUserById(userId);
+  return res.render("edit.ejs", { userEdit: user });
 };
 
-const getABC = async (req, res) => {
-  const [results, fields] = await connection.query("SELECT *FROM Users");
-  res.send(JSON.stringify(results));
-};
+// const getABC = async (req, res) => {
+//   const [results, fields] = await connection.query("SELECT *FROM Users");
+//   res.send(JSON.stringify(results));
+// };
 
 const postCreateUSer = async (req, res) => {
   let email = req.body.Email;
@@ -37,7 +37,6 @@ const postCreateUSer = async (req, res) => {
 
 module.exports = {
   getHomePage,
-  getABC,
   postCreateUSer,
   getCreateUser,
   getUpdatePage,
