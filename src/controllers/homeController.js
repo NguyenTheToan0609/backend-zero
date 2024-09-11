@@ -11,6 +11,10 @@ const getCreateUser = (req, res) => {
   res.render("create.ejs");
 };
 
+const getUpdatePage = (req, res) => {
+  res.render("edit.ejs");
+};
+
 const getABC = async (req, res) => {
   const [results, fields] = await connection.query("SELECT *FROM Users");
   res.send(JSON.stringify(results));
@@ -34,4 +38,5 @@ module.exports = {
   getABC,
   postCreateUSer,
   getCreateUser,
+  getUpdatePage,
 };
